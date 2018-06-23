@@ -1,14 +1,266 @@
 
-// Fonts
+// Imports
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url("https://use.fontawesome.com/releases/v5.1.0/css/all.css");
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
 
-// Variables
 @import "variables";
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// Global styles
+.float-right {
+  float: right;
+}
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.alert {
+  a {
+    font-weight: normal;
+    text-shadow: none;
+  }
+}
+
+.message-success {
+  color: #00be8c;
+  background-color: #1e4a3d;
+}
+
+.message-error {
+  color: #f1002d;
+  background-color: #50252d;
+}
+
+.red {
+  color: $red !important;
+}
+
+.secondary-text {
+  color: $secondary !important;
+}
+
+.checkbox-container {
+  cursor: pointer;
+  display: block;
+  font-size: 12px;
+  position: relative;
+  padding-left: 30px;
+  padding-top: 2px;
+  margin-top: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &:hover {
+    .checkmark {
+      background-color: $light !important;
+    }
+  }
+
+  input {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+  }
+
+  .checkmark {
+    background-color: $light;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 17px;
+    width: 17px;
+
+    &:after {
+      content: "";
+      display: none;
+      position: absolute;
+    }
+  }
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: $medium;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  top: 2px;
+  left: 6px;
+  height: 11px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 5px;
+}
+
+html, body {
+  background-color: $medium;
+}
+
+.navbar {
+  background-color: $dark;
+  border: 0;
+  line-height: 50px;
+  margin-bottom: 0;
+
+  .navbar-nav {
+    margin-left: 30px;
+
+    a {
+      color: white;
+      padding-bottom: 6px !important;
+
+      &:hover, &:focus, &.active {
+        background-color: $dark !important;
+        border-bottom: 3px solid #fff;
+      }
+    }
+  }
+
+  img {
+    width: 180px;
+  }
+
+  input[name="search"] {
+    margin-top: 8px;
+  }
+
+  .username {
+    color: #fff;
+    margin: 0 12px 0 0;
+  }
+}
+
+form {
+  label {
+    color: white;
+  }
+
+  select option {
+    color: white;
+    background-color: $light;
+  }
+}
+
+.form-control {
+  background-color: $light !important;
+  border: none;
+  border-radius: 4px;
+  box-shadow: none !important;
+  color: white !important;
+}
+
+.btn {
+  background-color: $accent;
+  color: white;
+  outline: none !important;
+  width: 110px;
+
+  &:hover {
+    color: darkgrey;
+  }
+}
+
+// Page styles
+.content {
+  margin-top: 50px;
+
+  .header {
+    background-color: $accent;
+    margin-bottom: 10px;
+
+    h4 {
+      color: #fff;
+      margin-top: 13px;
+    }
+  }
+}
+
+.login {
+  .login-logo {
+    text-align: center;
+    margin-bottom: 70px;
+
+    img {
+      width: 180px;
+    }
+  }
+
+  .forgot {
+    margin-top: 5px;
+  }
+}
+
+.song-list {
+  .song-item {
+    height: 133px;
+
+    td {
+      border-top: none;
+      border-bottom: 2px solid $light;
+
+      &.cover {
+        padding: 5px;
+        vertical-align: middle;
+        width: 11%;
+
+        img {
+          border-radius: 50%;
+          max-width: 100px;
+          min-width: 100px;
+        }
+      }
+
+      .name {
+        color: #fff;
+        font-size: 17px;
+        margin-bottom: 0;
+
+        span {
+          font-size: 14px;
+        }
+      }
+
+      &.details {
+        position: relative;
+
+        .bottom {
+          position: absolute;
+          bottom: 0;
+        }
+      }
+
+      &.download {
+        position: relative;
+        width: 15%;
+
+        a, p {
+          bottom: 10px;
+          position: absolute;
+          right: 10px;
+        }
+
+        p {
+          bottom: 40px;
+        }
+      }
+
+      &.difficulties {
+        width: 7%;
+
+        code {
+          background-color: $light;
+          color: white;
+          display: block;
+          text-align: center;
+          margin-bottom: 2px;
+        }
+      }
+    }
+  }
 }

@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', '- Newest')
+@section('title', 'Top Downloads')
 
 @section('content')
 

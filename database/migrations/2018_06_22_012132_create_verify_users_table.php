@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSongsTable extends Migration
+class CreateVerifyUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateSongsTable extends Migration
      */
     public function up()
     {
-        Schema::create('songs', function (Blueprint $table) {
+        Schema::create('verify_users', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('uploader_id');
-            $table->softDeletes();
+            $table->integer('user_id')->unsigned();
+            $table->string('token');
             $table->timestamps();
-
-            $table->foreign('uploader_id')->references('id')->on('users');
         });
     }
 
@@ -30,6 +28,6 @@ class CreateSongsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('songs');
+        Schema::dropIfExists('verify_users');
     }
 }

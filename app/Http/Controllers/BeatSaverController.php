@@ -2,32 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Song;
 
 class BeatSaverController extends Controller
 {
-    public function welcome(Request $request)
+    /**
+     * View for login / register
+     */
+    public function viewLogin()
     {
-        return view('welcome');
+        return view('pages.auth.login');
     }
 
-    public function topDownloads(Request $request, $start = 1)
+    /**
+     * View for login / register
+     */
+    public function viewNewest()
     {
-        return view('browse.downloads');
+        $songs = Song::orderBy('created_at', 'desc')->with('details')->paginate(25);
+
+        return view('pages.newest', compact('songs'));
     }
 
-    public function topPlayed(Request $request, $start = 1)
+    /**
+     * View for most popular songs
+     */
+    public function viewTopDownloads()
     {
-        return view('browse.played');
+        $songs = Song::with(['details' => function($query) {
+            $query->orderBy('download_count', 'desc');
+        }])->paginate(25);
+
+        return view('pages.top-downloads', compact('songs'));
     }
 
-    public function newest(Request $request, $start = 1)
+    /**
+     * View for most popular songs
+     */
+    public function viewTopStars()
     {
-        return view('browse.newest');
-    }
+        $songs = Song::withCount('stars')->orderBy('stars_count')->paginate(25);
 
-    public function search()
-    {
-        return view('search');
+        return view('pages.top-downloads', compact('songs'));
     }
 }
