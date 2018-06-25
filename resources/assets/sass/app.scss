@@ -130,7 +130,7 @@ html, body {
     margin-top: 8px;
   }
 
-  .username {
+  .login {
     color: #fff;
     margin: 0 12px 0 0;
   }
@@ -197,69 +197,34 @@ form {
 }
 
 .song-list {
+  display: flex;
+  flex-wrap: wrap;
+
   .song-item {
-    height: 133px;
+    flex: 20%;
+    padding: 7px;
+    position: relative;
+    margin-bottom: 5px;
 
-    td {
-      border-top: none;
-      border-bottom: 2px solid $light;
+    img {
+      max-width: 100%;
+    }
 
-      &.cover {
-        padding: 5px;
-        vertical-align: middle;
-        width: 11%;
-
-        img {
-          border-radius: 50%;
-          max-width: 100px;
-          min-width: 100px;
-        }
-      }
+    .details {
+      background-color: $medium;
+      height: 60px;
+      padding-top: 5px;
+      position: absolute;
+      top: 161px;
+      width: 94%;
 
       .name {
         color: #fff;
-        font-size: 17px;
-        margin-bottom: 0;
-
-        span {
-          font-size: 14px;
-        }
+        margin: 0;
       }
 
-      &.details {
-        position: relative;
-
-        .bottom {
-          position: absolute;
-          bottom: 0;
-        }
-      }
-
-      &.download {
-        position: relative;
-        width: 15%;
-
-        a, p {
-          bottom: 10px;
-          position: absolute;
-          right: 10px;
-        }
-
-        p {
-          bottom: 40px;
-        }
-      }
-
-      &.difficulties {
-        width: 7%;
-
-        code {
-          background-color: $light;
-          color: white;
-          display: block;
-          text-align: center;
-          margin-bottom: 2px;
-        }
+      .subname, .downloads {
+        font-size: 13px;
       }
     }
   }

@@ -120,7 +120,7 @@ body {
   margin-top: 8px;
 }
 
-.navbar .username {
+.navbar .login {
   color: #fff;
   margin: 0 12px 0 0;
 }
@@ -181,71 +181,43 @@ form select option {
   margin-top: 5px;
 }
 
+.song-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .song-list .song-item {
-  height: 133px;
+  -webkit-box-flex: 20%;
+      -ms-flex: 20%;
+          flex: 20%;
+  padding: 7px;
+  position: relative;
+  margin-bottom: 5px;
 }
 
-.song-list .song-item td {
-  border-top: none;
-  border-bottom: 2px solid #424242;
+.song-list .song-item img {
+  max-width: 100%;
 }
 
-.song-list .song-item td.cover {
-  padding: 5px;
-  vertical-align: middle;
-  width: 11%;
+.song-list .song-item .details {
+  background-color: #292929;
+  height: 60px;
+  padding-top: 5px;
+  position: absolute;
+  top: 161px;
+  width: 94%;
 }
 
-.song-list .song-item td.cover img {
-  border-radius: 50%;
-  max-width: 100px;
-  min-width: 100px;
-}
-
-.song-list .song-item td .name {
+.song-list .song-item .details .name {
   color: #fff;
-  font-size: 17px;
-  margin-bottom: 0;
+  margin: 0;
 }
 
-.song-list .song-item td .name span {
-  font-size: 14px;
-}
-
-.song-list .song-item td.details {
-  position: relative;
-}
-
-.song-list .song-item td.details .bottom {
-  position: absolute;
-  bottom: 0;
-}
-
-.song-list .song-item td.download {
-  position: relative;
-  width: 15%;
-}
-
-.song-list .song-item td.download a,
-.song-list .song-item td.download p {
-  bottom: 10px;
-  position: absolute;
-  right: 10px;
-}
-
-.song-list .song-item td.download p {
-  bottom: 40px;
-}
-
-.song-list .song-item td.difficulties {
-  width: 7%;
-}
-
-.song-list .song-item td.difficulties code {
-  background-color: #424242;
-  color: white;
-  display: block;
-  text-align: center;
-  margin-bottom: 2px;
+.song-list .song-item .details .subname,
+.song-list .song-item .details .downloads {
+  font-size: 13px;
 }
 

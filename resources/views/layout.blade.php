@@ -47,14 +47,14 @@
                         {{ Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Search songs']) }}
                     </div>
                     <div class="col-md-2">
-                        @auth
-                            <p class="username float-right">
-                                Hummus
+                        @if(\Auth::check())
+                            <p class="login float-right">
+                                {{ \Auth::user()->username }}
                                 <i class="fa fa-chevron-down"></i>
                             </p>
-                        @elseauth
-                            <a href="">Login / Register</a>
-                        @endauth
+                        @else
+                            <a href="{{ route('view.login') }}" class="login float-right">Login / Register</a>
+                        @endif
                     </div>
                 </div>
             </div>
